@@ -392,30 +392,31 @@ class P2BBoundaryGuardsTest {
     }
 
     @Test
-    fun providerDesignDocSeparatesCurrentAuthorizedWiringFromHistoricalPlans() {
-        val doc = File(repoRoot(), "docs/PROVIDER-DESIGN.md")
-        assertTrue("缺少 docs/PROVIDER-DESIGN.md", doc.isFile)
-        val text = doc.readText()
-        for (token in listOf("Mock", "P2-B", "P2-C", "SSE", "INTERNET")) {
-            assertTrue("设计文档必须提到 " + token, text.contains(token))
-        }
-        assertFalse(
-            "P2-B 已实现真实 HTTP/SSE 适配层，文档不得再宣称不发任何真实网络请求",
-            text.contains("本阶段不发起任何真实网络请求"),
+    fun providerWiringSeparatesAuthorizedRealAndMockPaths() {
+        val root = repoRoot()
+        val manifest = File(root, "app/src/main/AndroidManifest.xml").readText()
+        assertTrue(
+            "网络能力必须且只能通过 INTERNET 权限声明",
+            manifest.contains("android.permission.INTERNET"),
         )
-        val current = text.substringAfter("## 0. 当前批次：2026-10-19", missingDelimiterValue = "")
-            .substringBefore("## 历史设计正文（保留）")
-        assertTrue("必须以当前批次覆盖历史 P2-C 待接线口径", current.isNotBlank())
-        for (token in listOf("HttpProviders.repository", "GenerationCoordinator", "DEEPSEEK", "MOCK",
-            "不发请求", "凭据仅进程内存", "list_directory", "read_text_file", "最终构建", "仍待本轮正式报告")) {
-            assertTrue("当前接线文档缺少明确边界 " + token, current.contains(token))
+
+        val providerTypes = File(root, "app/src/main/java/com/example/aiuseagent/domain/provider/ProviderType.kt").readText()
+        for (token in listOf("DEEPSEEK", "OPENAI_COMPATIBLE", "ANTHROPIC", "MOCK")) {
+            assertTrue("ProviderType 必须包含 " + token, providerTypes.contains(token))
         }
-        val p2c = File(repoRoot(), "docs/P2C接线设计.md")
-        assertTrue("必须保留 P2-C 历史方案并更新已批准范围", p2c.isFile)
-        val p2cCurrent = p2c.readText().substringAfter("## 0. 当前批次：2026-10-19", missingDelimiterValue = "")
-            .substringBefore("## 历史方案正文（保留）")
-        for (token in listOf("用户已批准", "viewModelScope", "不再适用", "WHP", "历史", "待最终报告")) {
-            assertTrue("P2-C 当前前提缺少 " + token, p2cCurrent.contains(token))
-        }
+
+        val httpProviders = File(root, "app/src/main/java/com/example/aiuseagent/data/provider/HttpProviders.kt")
+        assertTrue("真实 HTTP 适配入口必须存在", httpProviders.isFile)
+        assertTrue("真实适配层必须使用 OkHttp 传输", httpProviders.readText().contains("OkHttpTransport"))
+
+        val mock = File(root, "app/src/main/java/com/example/aiuseagent/data/provider/mock/MockProvider.kt").readText()
+        assertFalse("Mock 不得直接依赖 OkHttp", mock.contains("okhttp3"))
+        assertFalse("Mock 不得声明网络权限", mock.contains("INTERNET"))
+
+        val coordinator = File(root, "app/src/main/java/com/example/aiuseagent/data/generation/GenerationCoordinator.kt").readText()
+        assertTrue(
+            "生成协调器必须通过统一 ProviderRepository 发起请求",
+            coordinator.contains("ProviderRepository") && coordinator.contains("prepare"),
+        )
     }
 }

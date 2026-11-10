@@ -21,7 +21,7 @@
 - 禁用 Android 系统云备份与设备间自动迁移，隐私数据仅保留在设备本地。
 - 附件链路：文件/照片/拍照、预览、移除、失败状态与发送前确认。
 - 历史附件预览：文本分段查看、图片本地预览，不额外请求模型。
-- 稳健的模型配置与连接身份（OpenAI 兼容 / Anthropic Messages / Mock）。
+- 稳健的模型配置与连接身份（DeepSeek / OpenAI 兼容 / Anthropic Messages / Mock）。
 
 ### 变更
 
@@ -32,5 +32,5 @@
 
 - 仅 API 37 / x86_64 验证；API 33 与 arm64 未验证。
 - 未做当前版本真实在线模型端到端验证。
-- PDF/Office/ZIP、隔离执行、MCP、导出/导入等未实现。
+- PDF/Office/ZIP、任意代码隔离执行、MCP、Skills 执行未实现。
 - `com.example.*` 不适用于 Google Play。
