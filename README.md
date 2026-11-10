@@ -1,6 +1,118 @@
+**English** | [简体中文](#chinese)
+
+<a id="english"></a>
+# Disper
+
+**A lightweight, easy-to-use, extensible open-source Android AI agent.**
+
+Disper aims to make AI agents more than chat tools: a mobile assistant that understands requests, works with files, calls tools, and helps complete real tasks.
+
+We want people new to AI agents to get started without friction, while giving developers room to explore and extend.
+
+> **Current version: v0.1.0-alpha.1 (Alpha Preview)**
+>
+> The project is still in early development. Some features are not available yet, and existing ones may be unstable or incomplete.
+
+## ✨ Highlights
+
+**Simple to use**
+
+Designed around clear, minimal interactions so new users can start without unnecessary setup.
+
+**English and Simplified Chinese**
+
+The interface supports English and Simplified Chinese, switchable in Settings. Internationalization will continue to improve.
+
+**Local-first and privacy-conscious**
+
+Chat history, attachments, and app configuration are stored locally by default. Disper does not rely on a self-hosted cloud account or chat sync service.
+
+API keys are protected with Android Keystore-backed encryption. When you use an online model, the content required for your request is sent to the model provider you configured.
+
+**From chat to agent**
+
+Beyond conversation, Disper is building the core agent capabilities: task execution, tool calls, workspace management, and explicit operation approval — so AI can move from answering questions to helping complete tasks.
+
+**Practical file handling**
+
+Select and use files in conversations, with a more coherent experience around reading, attachment management, and workspace operations. Supported formats and actions depend on the current release.
+
+**Built to extend**
+
+A modular approach leaves room for more tools, execution environments, and multi-agent collaboration.
+
+## 🚀 Roadmap
+
+Disper plans to explore the following directions:
+
+| Area | Plan |
+|---|---|
+| 🧠 Global memory | Manage and use long-term memory across sessions so the agent better understands ongoing work |
+| 🔓 Root-based extended permissions | Explore advanced device operations within explicit user authorization and controlled boundaries |
+| 🐍 Constrained Python runtime | Provide a sandboxed Python environment for data processing and automation |
+| 🤝 Multi-agent workspaces | Let multiple AI agents collaborate on complex tasks |
+| ⏰ Scheduled tasks | Support predefined tasks and scheduled triggers to reduce repetitive work |
+| 🌐 Remote connections | Explore secure connections to other devices or services to extend the agent's reach |
+| 💬 Proactive clarification | Let the agent ask, confirm, or remind at the right moment instead of always waiting for instructions |
+
+These are **planned directions only**. They are not implemented, and they are not release commitments. Designs and priorities will change as development progresses. See [docs/ROADMAP.md](docs/ROADMAP.md).
+
+## 📱 Current release
+
+**v0.1.0-alpha.1**
+
+The project has an Android native foundation with AI chat, model configuration, basic tool calls, file and workspace management, session history, and English/Chinese UI.
+
+Agent capabilities remain intentionally limited. Disper is not a fully autonomous, system-level phone automation agent. Some features are still in development or testing.
+
+Requires Android 13 (API 33) or later. Real-device compatibility is still being validated.
+
+## 🔐 Privacy and security
+
+Disper follows local-first storage, explicit authorization, and visible capability boundaries.
+
+- Sessions, attachments, and related app data are stored locally.
+- Disper does not provide a self-hosted chat cloud sync service.
+- Sensitive credentials are protected with Android Keystore-backed mechanisms.
+- File access and tool operations follow the relevant permissions and workspace boundaries.
+- Online model providers receive the data required to fulfill your request; their privacy policies govern how they handle it.
+
+See [docs/SECURITY.md](docs/SECURITY.md) for details.
+
+## 📦 Download and usage
+
+Test APKs will be published on [GitHub Releases](https://github.com/P0kong/disper-android-agent/releases) after the repository becomes public. **No Release has been published yet**, so this Private repository does not currently offer a download link.
+
+For a first run, start with basic chat and the local Mock provider. Connecting to an online model requires configuring that provider yourself.
+
+**Note:** Alpha software can have defects. Back up important files. Do not use this release for highly reliable or unattended sensitive operations.
+
+## 🛠️ Open source and contributing
+
+Disper is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+Issues with questions, feature suggestions, and improvement ideas are welcome, as are code contributions.
+
+The project will continue improving the usability, privacy, and extensibility of the Android agent.
+
+## 📚 Developer documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Building](docs/BUILDING.md)
+- [Security](docs/SECURITY.md)
+- [Testing](docs/TESTING.md)
+- [Roadmap](docs/ROADMAP.md)
+
+---
+
+**Disper — from conversation to action.**
+
+<a id="chinese"></a>
 # Disper
 
 **轻量、易用、可扩展的开源 Android AI Agent。**
+
+[English](#english)
 
 Disper 致力于让 AI Agent 不再只是聊天工具，而是能够理解需求、处理文件、调用工具并协助完成任务的移动端智能助手。
 
@@ -78,7 +190,7 @@ Disper 坚持本地优先、明确授权和能力边界可见的设计原则。
 
 ## 📦 下载与使用
 
-正式公开后，可前往 GitHub Releases 获取测试版 APK。
+仓库公开后，测试版 APK 将发布在 [GitHub Releases](https://github.com/P0kong/disper-android-agent/releases)。**当前尚未创建任何 Release**，因此这个 Private 仓库暂不提供下载链接。
 
 首次使用建议从基础对话和本地 Mock 模式开始体验。连接在线模型需要自行配置相应服务商的连接信息。
 
