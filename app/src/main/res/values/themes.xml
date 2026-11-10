@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      平台 DayNight 主题：让窗口背景与系统栏图标跟随系统深浅色。
+      界面颜色由 Compose 侧的 AiUseAgentTheme 决定（设置页可覆盖为强制浅色/深色）。
+      不使用 AppCompat / Material Components 主题，保持零额外依赖。
+    -->
+    <style name="Theme.AiUseAgent" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

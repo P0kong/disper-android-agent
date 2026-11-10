@@ -1,0 +1,27 @@
+*.iml
+.gradle/
+.idea/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+.DS_Store
+*.hprof
+app/release/
+.kotlin/
+
+# 本机构建缓存：Gradle 用户目录可放在仓库内，避免写入受限的系统目录。
+# 仅为本地构建状态，可随时删除（删除后首次构建需重新联网下载依赖）。
+.gradle-user-home/
+
+# 本机构建所需的 Android 用户目录（debug keystore 等仅本地使用，不入库）。
+.android-user-home/
+
+# Per-run CLI logs, validation JSON, locks and temporary diagnostic evidence.
+.android-cli-runs/
+
+# Project-local Android test bridge dependencies/cache and machine policy (never keys).
+tools/android-test-mcp/node_modules/
+tools/android-test-mcp/.npm-cache/
+tools/android-test-mcp/policy.local.json

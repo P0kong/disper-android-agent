@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:networkSecurityConfig="@xml/attachment_test_network_security">
+        <activity android:name="com.example.aiuseagent.testing.SyntheticAttachmentActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <service android:name="com.example.aiuseagent.testing.RecoveryFaultService" android:exported="false" android:process=":recovery_fault" />
+        <activity android:name="com.example.aiuseagent.testing.SyntheticSafActivity" android:exported="false" />
+        <activity android:name="com.example.aiuseagent.testing.SyntheticPermissionActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+    </application>
+</manifest>

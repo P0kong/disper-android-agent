@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Disper 完全本地数据策略：
+  - 不参与 Android 云备份；
+  - 不参与设备间自动数据迁移；
+  - 聊天数据库、附件、模型配置与 API Key 密文都在应用私有目录内，这里按域整体排除。
+  说明：minSdk 33（Android 13），dataExtractionRules 覆盖全部受支持版本，因此不再需要旧版 fullBackupContent。
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </device-transfer>
+</data-extraction-rules>

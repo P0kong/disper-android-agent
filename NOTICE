@@ -1,0 +1,161 @@
+Android AI Use Agent
+Copyright (c) 2026 Android AI Use Agent 项目贡献者
+
+本产品（Android 应用包名 com.example.aiuseagent，以及本仓库中的构建脚本与封装脚本）
+包含或随附下列第三方软件。下列各组件的版权归其各自所有者所有，并按各自的许可证条款提供。
+
+================================================================================
+一、随 APK 分发的第三方组件
+================================================================================
+
+1) AndroidX / Jetpack 系列（compose ui、foundation、material3、runtime、activity、
+   lifecycle、core、annotation、collection、graphics、tracing、window、savedstate 等）
+   许可证：Apache License 2.0
+   版权：Copyright (c) The Android Open Source Project
+   来源：https://developer.android.com/jetpack  /  https://cs.android.com/androidx/platform/frameworks/support
+
+2) Kotlin 标准库与 kotlinx 库（org.jetbrains.kotlin:kotlin-stdlib:2.2.10、
+   org.jetbrains.kotlinx:kotlinx-coroutines-*:1.9.0、kotlinx-serialization-*:1.7.3）
+   （已实测：debugRuntimeClasspath 中 kotlinx-coroutines-core / -android 解析为 1.9.0；
+   测试依赖 kotlinx-coroutines-test:1.10.2 只在测试类路径，未打进 APK）
+   许可证：Apache License 2.0
+   版权：Copyright (c) JetBrains s.r.o. and Kotlin Programming Language contributors
+   来源：https://github.com/JetBrains/kotlin  /  https://github.com/Kotlin/kotlinx.coroutines
+
+3) Chaquopy（Gradle 插件 com.chaquo.python:gradle:17.0.0、
+   运行时 com.chaquo.python.runtime:chaquopy:17.0.0 / chaquopy_java:17.0.0 /
+   bootstrap:17.0.0、Python target com.chaquo.python:target:3.13.9-0）
+   许可证：MIT License
+   版权：Copyright (c) 2017-2025 Chaquo Ltd and contributors
+   来源：https://github.com/chaquo/chaquopy/blob/master/LICENSE.txt
+
+4) CPython 3.13.9（被打包为 lib/arm64-v8a/libpython3.13.so、lib/x86_64/libpython3.13.so，
+   以及 assets/chaquopy/stdlib-*.imy、bootstrap-native/<ABI>/ 下的扩展模块 .so）
+   许可证：Python Software Foundation License 2.0 (PSF-2.0)
+   版权：Copyright (c) 2001-2025 Python Software Foundation. All Rights Reserved.
+   来源：https://docs.python.org/3/license.html
+   版本证据：libpython3.13.so 内嵌版本串 "3.13.9"
+
+5) OpenSSL 3.0.18（被打包为 lib/arm64-v8a/libcrypto_python.so、libssl_python.so
+   以及对应的 x86_64 版本；同目录的 libcrypto_chaquopy.so / libssl_chaquopy.so 只是
+   Chaquopy 的转发薄壳）
+   许可证：Apache License 2.0
+   版权：Copyright (c) 1998-2025 The OpenSSL Project Authors / Copyright (c) 1995-1998 Eric A. Young, Tim J. Hudson
+   来源：https://www.openssl.org/source/license.html
+   版本证据：libcrypto_python.so 内嵌串 "OpenSSL 3.0.18"、"built on: Sat Oct  4 14:22:29 2025 UTC"
+   说明：本产品打包的是 OpenSSL 项目与 OpenSSL 3.x 采用的 Apache-2.0 许可版本；
+        历史上 OpenSSL 1.0.x 曾使用双许可（OpenSSL License + SSLeay License），3.x 起统一为 Apache-2.0。
+
+6) SQLite 3.50.4（被打包为 lib/arm64-v8a/libsqlite3_python.so 与 x86_64 版本；
+   libsqlite3_chaquopy.so 只是转发薄壳）
+   许可证：Public Domain（SQLite 作者已声明不主张版权）
+   来源：https://www.sqlite.org/copyright.html
+   版本证据：libsqlite3_python.so 内嵌串 "3.50.4"、"2025-07-30 19:33:53"
+
+7) CA 根证书包 assets/chaquopy/cacert.pem（Mozilla 的 CA 证书数据，由 certifi 项目提取打包）
+   许可证：Mozilla Public License 2.0 (MPL-2.0)
+   来源：https://github.com/certifi/python-certifi/blob/master/LICENSE
+        https://www.mozilla.org/en-US/MPL/2.0/
+   说明：证书数据本身是事实性的公钥基础设施数据；certifi/Mozilla 以 MPL-2.0 分发其打包与提取成果。
+
+8) com.google.guava:listenablefuture:1.0（经由 androidx 依赖传递引入）
+   许可证：Apache License 2.0
+   版权：Copyright (c) The Guava Authors
+   来源：父 POM https://repo1.maven.org/maven2/com/google/guava/guava-parent/26.0-android/guava-parent-26.0-android.pom
+        （该构件自身的 POM 未声明 <licenses> 节点，其许可证按父 POM 判定）
+
+9) Room（androidx.room:room-runtime / room-ktx / room-common 2.8.5，以及传递依赖
+   androidx.sqlite:sqlite / sqlite-framework 2.6.2）
+   许可证：Apache License 2.0
+   版权：Copyright (c) The Android Open Source Project
+   来源：https://developer.android.com/jetpack/androidx/releases/room
+   证据：构件自身 POM 的 <licenses> 原文 "The Apache Software License, Version 2.0"
+
+10) androidx.compose.material:material-icons-core（1.7.8，版本由 Compose BOM 2026.09.00 决定）
+     许可证：Apache License 2.0
+     版权：Copyright (c) The Android Open Source Project
+     来源：https://developer.android.com/jetpack/androidx/releases/compose-material
+
+11) org.jspecify:jspecify:1.0.0、org.jetbrains:annotations:23.0.0
+    许可证：Apache License 2.0
+    来源：https://jspecify.dev/  /  https://github.com/JetBrains/java-annotations
+
+12) OkHttp（com.squareup.okhttp3:okhttp:5.5.0，在 Android 上解析为 okhttp-android:5.5.0 的 AAR）
+    与传递依赖 com.squareup.okio:okio / okio-jvm:3.18.1（P2-B 新增）
+    许可证：Apache License 2.0（POM <licenses> 原文 "The Apache Software License, Version 2.0"）
+    版权：Copyright (c) Square, Inc. and OkHttp contributors
+    来源：https://square.github.io/okhttp/  /  https://github.com/lysine-dev/okhttp
+    说明：P2-B 的真实 HTTP 传输实现（全工程唯一直接使用 OkHttp 的类是 OkHttpTransport）。
+          该构件 POM 的 <url>/<scm> 指向 https://lysine.dev/okhttp/ 与 github.com/lysine-dev/okhttp
+          （OkHttp 5.x 的后续维护方，不再是 square/okhttp）；groupId 仍为 com.squareup.okhttp3，
+          许可证原文仍是 Apache-2.0。**本阶段未做进一步供应链核实**，列为待人工确认项。
+
+13) kotlinx.serialization（org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0 及其
+    -json-jvm / -core / -core-jvm / -bom 传递构件；P2-B 新增）
+    许可证：Apache License 2.0（POM <licenses> 原文 "Apache-2.0"）
+    版权：Copyright (c) 2017-2025 JetBrains s.r.o. and Kotlin Programming Language contributors
+    来源：https://github.com/Kotlin/kotlinx.serialization
+    说明：只使用运行时的 JsonElement / JsonObject API 解析 SSE 负载与错误体，
+          未应用 kotlinx.serialization 编译器插件。选 1.9.0 的理由：它要求 kotlin-stdlib 2.2.0（≤ 本工程基线 2.2.10），
+          而 1.10.0 要求 kotlin-stdlib 2.3.0，高于基线，已拒绝引入。
+
+================================================================================
+二、随仓库分发、但不进入 APK 的构建工具
+================================================================================
+
+14) Gradle Wrapper（gradlew / gradlew.bat / gradle/wrapper/gradle-wrapper.jar）
+    许可证：Apache License 2.0
+    版权：Copyright (c) Gradle, Inc.
+    gradle-wrapper.jar 的 SHA-256 已与官方发布值逐字节核对一致：
+    55243EF57851F12B070AD14F7F5BB8302DACEEEBC5BCE5ECE5FA6EDB23E1145C
+    （官方 https://services.gradle.org/distributions/gradle-9.4.1-wrapper.jar.sha256）
+
+15) Gradle 9.4.1 发行版（由 gradlew 在构建时下载或由本机工具链缓存提供，不随 APK 分发）
+    许可证：Apache License 2.0   来源：https://gradle.org/
+
+16) Android Gradle Plugin 9.2.1、Android SDK Build-Tools / Platform-Tools（构建期工具，不随 APK 分发）
+    许可证：Apache License 2.0（AGP）/ Android SDK License（Google 条款）
+    来源：https://developer.android.com/studio/terms
+
+17) KSP（com.google.devtools.ksp:symbol-processing-gradle-plugin 2.2.10-2.0.2 及其配套构件；
+    Room 的 DAO 实现由它生成）、androidx.room:room-compiler 2.8.5（注解处理器，编译期）
+    许可证：Apache License 2.0（POM <licenses> 原文 "The Apache License, Version 2.0"）
+    来源：https://github.com/google/ksp  /  https://developer.android.com/jetpack/androidx/releases/room
+    说明：仅在构建期使用，不随 APK 分发。
+
+18) 测试期依赖（不随 APK 分发，也不随仓库发布的产物分发）：
+    - junit:junit:4.13.2 —— 许可证：Eclipse Public License 1.0（POM <licenses> 原文
+      "Eclipse Public License 1.0"，http://www.eclipse.org/legal/epl-v10.html）。
+      这是本仓库中唯一非 Apache/MIT/PSF/MPL 的依赖，属弱 copyleft；只用于 JVM 单元测试，
+      不在 debugRuntimeClasspath 中，不会打进 APK。
+    - org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2 —— 许可证：Apache License 2.0。
+    - com.squareup.okhttp3:mockwebserver3:5.5.0（及其传递依赖 okhttp-jvm:5.5.0）—— 许可证：Apache License 2.0
+      （POM <licenses> 原文 "The Apache Software License, Version 2.0"）。
+      只在 JVM 单元测试里启动本机 HTTP 测试服务器（127.0.0.1，伪凭据），不在 debugRuntimeClasspath 中，不会打进 APK。
+
+19) 构建用 JDK：Oracle JDK 21.0.3+7-LTS-152
+    许可证：Oracle No-Fee Terms and Conditions (NFTC)，**不是 OSI 开源许可证**
+    来源：构建机本地 JDK 安装目录内的 LICENSE 文件（不随 APK 分发）
+    说明：JDK 仅在构建机上使用，不随 APK 分发。若后续需对外分发构建产物或接入 CI，
+          建议改用 OpenJDK 发行版（如 Eclipse Temurin，GPLv2 with Classpath Exception）。
+
+================================================================================
+三、许可证全文
+================================================================================
+
+Apache License 2.0 全文：https://www.apache.org/licenses/LICENSE-2.0
+MIT License 全文：https://opensource.org/license/mit
+PSF License 2.0 全文：https://docs.python.org/3/license.html
+MPL 2.0 全文：https://www.mozilla.org/en-US/MPL/2.0/
+
+================================================================================
+四、说明
+================================================================================
+
+- 本文件不改变任何第三方许可证的条款；当本文件与任一第三方许可证冲突时，以该许可证原文为准。
+- 逐条依赖与证据见 docs/开源审查.md 与 docs/dependencies-licenses.md。
+- 「不进 APK」的结论以构建配置为准（testImplementation 与 Gradle 插件不在 debugRuntimeClasspath 中）；
+  逐条依赖与证据见 docs/dependencies-licenses.md。
+- 本仓库当前处于「模型 Provider 契约层与本地 Mock（P2-A）+ 真实 HTTP/SSE 适配器（P2-B）」阶段，尚未对外发布正式版本。
+  P2-B 已有真实的联网代码路径，但**适配器没有接进界面**：应用界面仍然不会向任何模型服务发起请求；
+  测试中的网络请求一律打向本机 MockWebServer（127.0.0.1），且使用伪凭据。

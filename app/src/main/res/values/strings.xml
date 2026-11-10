@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Disper</string>
+    <string name="nav_chat">对话</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_capabilities">权限与能力</string>
+    <string name="nav_skills">Skills</string>
+    <string name="nav_diagnostics">诊断</string>
+    <string name="nav_model">模型配置</string>
+    <string name="nav_general">通用设置</string>
+    <string name="nav_tools">工具</string>
+    <string name="nav_about">关于</string>
+    <string name="nav_folder">工作文件夹</string>
+    <string name="nav_mcp">MCP</string>
+</resources>
