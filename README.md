@@ -89,7 +89,7 @@ For a first run, start with basic chat and the local Mock provider. Connecting t
 
 ## 🛠️ Open source and contributing
 
-Disper is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Disper is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE). Source code is licensed under Apache-2.0; the original Disper app icon artwork is separately reserved. Personal, non-commercial local builds are allowed; public distribution requires separate permission — see [Artwork & Icon Licensing](ASSETS-LICENSE.md).
 
 Issues with questions, feature suggestions, and improvement ideas are welcome, as are code contributions.
 
@@ -198,7 +198,7 @@ Disper 坚持本地优先、明确授权和能力边界可见的设计原则。
 
 ## 🛠️ 开源与贡献
 
-Disper 以 **Apache License 2.0** 开源，见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
+Disper 以 **Apache License 2.0** 开源，见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。项目源码采用 Apache-2.0；Disper 原创应用图标素材保留独立权利，允许个人非商业本地编译，公开分发需另行授权，详见[图标与素材许可](ASSETS-LICENSE.md)。
 
 欢迎通过 Issues 提出问题、功能建议及改进意见，也欢迎开发者参与代码贡献。
 

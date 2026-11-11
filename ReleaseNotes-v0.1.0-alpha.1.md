@@ -49,6 +49,12 @@ Disper 的首个 Alpha 预览版，用于验证本地优先的聊天、附件与
 - 高级能力入口保持不可用或安全拒绝。
 - 签名 APK 上的附件与历史链路未重复执行；其自动化证据来自同一源码的 debug 构建（附件 6/6、历史 5/5），发布包已通过安装、启动与关于页 smoke。
 
+## 许可
+
+源码采用 Apache-2.0；Disper 原创应用图标素材保留独立权利，详见仓库根目录 `ASSETS-LICENSE.md` 与 `NOTICE`。
+
+Source code is Apache-2.0. The original Disper app icon artwork is separately reserved; see `ASSETS-LICENSE.md`.
+
 ## 反馈
 
 Alpha 阶段请通过项目仓库 Issue 反馈；仓库公开前暂不提供外部入口。

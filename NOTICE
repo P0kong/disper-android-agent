@@ -1,8 +1,10 @@
-Android AI Use Agent
-Copyright (c) 2026 Android AI Use Agent 项目贡献者
+Disper
+Copyright (c) 2026 Disper project author
 
-本产品（Android 应用包名 com.example.aiuseagent，以及本仓库中的构建脚本与封装脚本）
+本产品（Android 应用包名 com.example.aiuseagent.design，以及本仓库中的构建脚本与封装脚本）
 包含或随附下列第三方软件。下列各组件的版权归其各自所有者所有，并按各自的许可证条款提供。
+
+本文件仅覆盖第三方组件；Disper 原创应用图标素材的许可边界见 `ASSETS-LICENSE.md`，源码许可见 `LICENSE`。
 
 ================================================================================
 一、随 APK 分发的第三方组件
@@ -153,9 +155,8 @@ MPL 2.0 全文：https://www.mozilla.org/en-US/MPL/2.0/
 ================================================================================
 
 - 本文件不改变任何第三方许可证的条款；当本文件与任一第三方许可证冲突时，以该许可证原文为准。
-- 逐条依赖与证据见 docs/开源审查.md 与 docs/dependencies-licenses.md。
+- 逐条依赖与证据见本文件各条目及仓库中的构建配置。
 - 「不进 APK」的结论以构建配置为准（testImplementation 与 Gradle 插件不在 debugRuntimeClasspath 中）；
-  逐条依赖与证据见 docs/dependencies-licenses.md。
-- 本仓库当前处于「模型 Provider 契约层与本地 Mock（P2-A）+ 真实 HTTP/SSE 适配器（P2-B）」阶段，尚未对外发布正式版本。
-  P2-B 已有真实的联网代码路径，但**适配器没有接进界面**：应用界面仍然不会向任何模型服务发起请求；
-  测试中的网络请求一律打向本机 MockWebServer（127.0.0.1），且使用伪凭据。
+  逐条依赖与证据见本文件各条目及仓库中的构建配置。
+- 当前版本为 `v0.1.0-alpha.1`（Alpha）。应用界面已支持在用户点击发送时，向用户配置的模型服务发起请求。
+- 测试中的网络请求打向本机 MockWebServer（127.0.0.1）并使用伪凭据；更新检查仅请求 GitHub 公开 Releases 元数据，不携带聊天、附件或凭据。
